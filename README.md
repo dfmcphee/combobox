@@ -4,13 +4,15 @@ Combobox is a JavaScript plugin that will automatically turn a regular ol‘ `se
 
 ## Getting started
 
-Include the styles in the head of your document
+Include the styles in the head of your document.
+
 `<link rel="stylesheet" href="https://s3.amazonaws.com/combobox/combobox.css">`
 
-Include the script at the bottom of the body
+Include the script at the bottom of the body.
+
 `<script src="https://s3.amazonaws.com/combobox/combobox.js"></script>`
 
-Add a new `<select>` element with the class `autocomplete`
+Add a new `<select>` element with the class `autocomplete`.
 
 Make sure your select is wrapped in a container and it has a label within that container.
 
