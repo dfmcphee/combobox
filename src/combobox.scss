@@ -10,7 +10,7 @@ $border-radius: 3px;
   border: solid 1px;
   border-radius: $border-radius;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .autocomplete__select {
@@ -39,7 +39,7 @@ $border-radius: 3px;
 
 .autocomplete__result {
   list-style: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 0;
   padding: 0.5rem 1rem;
   cursor: pointer;
