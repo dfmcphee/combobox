@@ -66,6 +66,10 @@
         }
       });
 
+      this.input.addEventListener('blur', (evt) => {
+        this.hideResults();
+      });
+
       document.body.addEventListener('click', (evt) => {
         if (!this.container.contains(evt.target)) {
           this.hideResults();
