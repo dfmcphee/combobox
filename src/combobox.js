@@ -118,7 +118,7 @@
         optionNode.classList.add(CLASSES.RESULT.SELECTED);
         this.input.dataset.selected = optionNode.id;
         optionNode.scrollIntoView(false);
-        this.resultsNotice.innerText = optionNode.innerText;
+        this.resultsNotice.textContent = optionNode.textContent;
         if (callback) {
           callback();
         }
@@ -127,9 +127,9 @@
 
     chooseOption() {
       const selectedOption = document.getElementById(this.input.dataset.selected);
-      this.input.value = selectedOption.innerText;
+      this.input.value = selectedOption.textContent;
       this.select.value = selectedOption.dataset.value;
-      this.resultsNotice.innerText = `${selectedOption.innerText} selected`;
+      this.resultsNotice.textContent = `${selectedOption.textContent} selected`;
       this.hideResults();
     }
 
@@ -164,36 +164,45 @@
     }
 
     outputResults() {
-      this.results.forEach((result) => {
-        const resultListItem = document.createElement('li');
-        resultListItem.setAttribute('id', result.id);
-        resultListItem.classList.add(CLASSES.RESULT.BASE);
-        resultListItem.textContent = result.label;
-        resultListItem.dataset.value = result.value;
-        resultListItem.setAttribute('role', 'option');
-        resultListItem.addEventListener('click', (evt) => {
-          this.selectOption(evt.target, () => this.chooseOption());
+      if (this.results.length > 0) {
+        this.results.forEach((result) => {
+          const resultListItem = document.createElement('li');
+          resultListItem.setAttribute('id', result.id);
+          resultListItem.classList.add(CLASSES.RESULT.BASE);
+          resultListItem.textContent = result.label;
+          resultListItem.dataset.value = result.value;
+          resultListItem.setAttribute('role', 'option');
+          resultListItem.addEventListener('click', (evt) => {
+            this.selectOption(evt.target, () => this.chooseOption());
+          });
+          window.requestAnimationFrame(() => {
+            this.resultsList.appendChild(resultListItem);
+          });
         });
+      } else {
+        const noResultsItem = document.createElement('li');
+        noResultsItem.classList.add(CLASSES.RESULT.BASE);
+        noResultsItem.textContent = 'No results found';
         window.requestAnimationFrame(() => {
-          this.resultsList.appendChild(resultListItem);
+          this.resultsList.appendChild(noResultsItem);
         });
-      });
+      }
       this.showResults();
     }
 
     showResults() {
-      if (this.results.length > 0) {
-        this.isVisible = true;
-        window.requestAnimationFrame(() => {
-          this.resultsList.classList.add(CLASSES.RESULTS.VISIBLE);
-          this.input.setAttribute('aria-expanded', 'true');
-          if (this.results.length === 1) {
-            this.resultsNotice.innerText = '1 result';
-          } else {
-            this.resultsNotice.innerText = `${this.results.length} results`;
-          }
-        });
-      }
+      this.isVisible = true;
+      window.requestAnimationFrame(() => {
+        this.resultsList.classList.add(CLASSES.RESULTS.VISIBLE);
+        this.input.setAttribute('aria-expanded', 'true');
+        if (this.results.length === 0) {
+          this.resultsNotice.textContent = `No results found`;
+        } else if (this.results.length === 1) {
+          this.resultsNotice.textContent = '1 result';
+        } else {
+          this.resultsNotice.textContent = `${this.results.length} results`;
+        }
+      });
     }
 
     outputInput(resultsId) {
