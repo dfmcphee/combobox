@@ -1,10 +1,17 @@
 {
-  "name": "combobox",
+  "name": "select-combobox",
   "version": "1.0.0",
   "description": "A plugin to turn a normal select element into an accesible autocomplete.",
   "main": "dist/combobox.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dfmcphee/combobox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dfmcphee/combobox/issues"
   },
   "author": "Dominic McPhee <dominic.mcphee@gmail.com> (https://dfmcphee.com)",
   "license": "MIT",
