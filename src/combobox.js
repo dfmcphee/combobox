@@ -32,7 +32,7 @@
       this.container.classList.add(CLASSES.CONTAINER);
       this.container.style.position = 'relative';
       this.label = this.container.querySelector('label');
-      const selectOptions = Array.from(node.querySelectorAll('option'));
+      const selectOptions = [].slice.call(node.querySelectorAll('option'));
       const resultsId = `${this.select.id}-autocomplete`;
       this.isVisible = false;
       this.options = selectOptions.map((option, index) => {
@@ -276,7 +276,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    const autocompletes = Array.from(document.querySelectorAll(`.${CLASSES.BASE}`));
+    const autocompletes = [].slice.call(document.querySelectorAll(`.${CLASSES.BASE}`));
     autocompletes.forEach(createAutocomplete);
   });
 })();
