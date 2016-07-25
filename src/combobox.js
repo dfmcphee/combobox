@@ -57,7 +57,7 @@
         this.filterResults(input);
       });
 
-      this.input.addEventListener('focus', (evt) => {
+      this.input.addEventListener('focus', () => {
         if (this.results) {
           this.showResults();
         } else {
@@ -66,7 +66,7 @@
         }
       });
 
-      this.input.addEventListener('blur', (evt) => {
+      this.input.addEventListener('blur', () => {
         this.hideResults();
       });
 
@@ -143,7 +143,8 @@
 
     filterResults(input) {
       const results = this.options.filter((result) => {
-        return (result.value.toLowerCase().indexOf(input) !== -1);
+        return (result.value.toLowerCase().indexOf(input) != -1) ||
+               (result.label.toLowerCase().indexOf(input) != -1);
       });
 
       this.updateResults(results);
