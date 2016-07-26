@@ -1,6 +1,6 @@
 {
   "name": "select-combobox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin to turn a normal select element into an accesible autocomplete.",
   "main": "dist/combobox.js",
   "scripts": {
