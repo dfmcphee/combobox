@@ -6,11 +6,11 @@ Combobox is a JavaScript plugin that will automatically turn a regular ol‘ `se
 
 Include the styles in the head of your document.
 
-`<link rel="stylesheet" href="https://npmcdn.com/select-combobox/dist/combobox.css">`
+`<link rel="stylesheet" href="https://unpkg.com/select-combobox/dist/combobox.css">`
 
 Include the script at the bottom of the body.
 
-`<script src="https://npmcdn.com/select-combobox/dist/combobox.js"></script>`
+`<script src="https://unpkg.com/select-combobox/dist/combobox.js"></script>`
 
 Add a new `<select>` element with the class `autocomplete`.
 
